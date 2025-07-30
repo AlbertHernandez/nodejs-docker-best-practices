@@ -1,0 +1,31 @@
+{
+  "name": "node-typescript-path-aliases",
+  "version": "1.0.0",
+  "description": "Production-ready Docker setup for Node.js using Alpine, multi-stage builds, and best practices for secure and efficient images",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "ts-node-dev --quiet src/main.ts",
+    "build": "rm -rf dist && tsc -p tsconfig.prod.json",
+    "start": "node dist/main.js"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "keywords": [
+    "nodejs",
+    "docker"
+  ],
+  "author": "alberthernandezdev@gmail.com",
+  "engines": {
+    "node": ">=22.x",
+    "npm": ">=9.x"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
