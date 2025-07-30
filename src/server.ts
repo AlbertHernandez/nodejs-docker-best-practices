@@ -1,13 +1,12 @@
 import express, { Express } from "express";
 import http from "node:http";
+import { config } from "./config";
 
 export class Server {
   private readonly app: Express;
   private httpServer?: http.Server;
 
-  constructor(
-    private readonly configuration: { port?: number } = { port: 3000 },
-  ) {
+  constructor() {
     this.app = express();
     this.app.use(express.json());
     this.app.get("/", (req, res) => {
@@ -17,8 +16,8 @@ export class Server {
 
   async start(): Promise<void> {
     return new Promise((resolve) => {
-      this.httpServer = this.app.listen(this.configuration.port, () => {
-        console.log(`Server is running on port ${this.configuration.port}`);
+      this.httpServer = this.app.listen(config.port, () => {
+        console.log(`Server is running on port ${config.port}`);
         resolve();
       });
     });
